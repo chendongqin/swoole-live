@@ -8,8 +8,8 @@ class Index
         return 1234565;
     }
 
-    public function hello($name = 'ThinkPHP5')
+    public function hello()
     {
-        return 'hello,' . $name;
+        return 'hello';
     }
 }

@@ -21,6 +21,11 @@ $http->on('WorkerStart',function (swoole_server $server,$worker_id){
 });
 
 $http->on('request',function ($request ,$response) use($http){
+    $_GET =[];
+    $_POST =[];
+    $_COOKIE =[];
+    $_FILES =[];
+    $_SERVER =[];
     if(!empty($request->get)){
         $_GET = $request->get;
     }
@@ -44,11 +49,9 @@ $http->on('request',function ($request ,$response) use($http){
     }catch (\Exception $exception){
 
     }
-    echo '-action-'.request()->action().PHP_EOL;
     $res = ob_get_contents();
     ob_end_clean();
     $response->end($res);
-    //$http->close();
 });
 
 $http->start();
