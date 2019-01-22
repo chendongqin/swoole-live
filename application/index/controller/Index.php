@@ -5,7 +5,7 @@ class Index
 {
     public function index()
     {
-        return 1234565;
+        echo 1234565;
     }
 
     public function hello()
