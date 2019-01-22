@@ -677,8 +677,9 @@ class Request
      */
     public function pathinfo()
     {
+        var_dump($_SERVER['PATH_INFO']);
         //swoole兼容重写
-        if(isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] !='/'){
+        if(isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] !='/favicon.ico'){
             return ltrim($pathinfo, '/');
         }
 //        if (is_null($this->pathinfo)) {
