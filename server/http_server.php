@@ -38,8 +38,13 @@ $http->on('request',function ($request ,$response) use($http){
             $_SERVER[strtoupper($key)] = $value;
         }
     }
+    var_dump($request->server);
     ob_start();
-    think\Container::get('app')->run()->send();
+    try{
+        think\Container::get('app')->run()->send();
+    }catch (\Exception $exception){
+
+    }
     $res = ob_get_contents();
     ob_end_clean();
     $response->end($res);
