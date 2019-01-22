@@ -46,10 +46,10 @@ $http->on('request',function ($request ,$response) use($http){
     ob_start();
     try{
         think\Container::get('app')->run()->send();
+//        echo request()->pathinfo().PHP_EOL;
     }catch (\Exception $exception){
 
     }
-    echo request()->pathinfo().PHP_EOL;
     var_dump($request->server);
     $res = ob_get_contents();
     ob_end_clean();
