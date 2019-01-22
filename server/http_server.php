@@ -21,24 +21,24 @@ $http->on('WorkerStart',function (swoole_server $server,$worker_id){
 });
 
 $http->on('request',function ($request ,$response) use($http){
-    $_GET =[];
-    $_POST =[];
-    $_COOKIE =[];
-    $_FILES =[];
-    $_SERVER =[];
     if(!empty($request->get)){
+        $_GET =[];
         $_GET = $request->get;
     }
     if(!empty($request->post)){
+        $_POST =[];
         $_POST = $request->post;
     }
     if(!empty($request->cookie)){
+        $_COOKIE =[];
         $_COOKIE = $request->cookie;
     }
     if(!empty($request->files)){
+        $_FILES =[];
         $_FILES = $request->files;
     }
     if(!empty($request->server)){
+        $_SERVER =[];
         foreach ($request->server as $key =>$value){
             $_SERVER[strtoupper($key)] = $value;
         }
