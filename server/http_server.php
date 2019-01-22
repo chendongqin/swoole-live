@@ -49,7 +49,7 @@ $http->on('request',function ($request ,$response) use($http){
     }catch (\Exception $exception){
 
     }
-//    var_dump($request->server);
+    var_dump($request->get);
     $res = ob_get_contents();
     ob_end_clean();
     $response->end($res);
