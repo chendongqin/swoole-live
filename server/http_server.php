@@ -15,7 +15,6 @@ $http->set(
 );
 
 $http->on('request',function ($request ,$response){
-    var_dump(__DIR__.'/../public/static');
     $response->end('sss'.json_encode($request->get));
 });
 
