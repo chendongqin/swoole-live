@@ -95,7 +95,7 @@
 		  $('#authCodeBtn').click(function (event) {
 
 			    var phone_num = $(" input[ name='phone_num' ] ").val()
-				url = "http://swoole.cddong.top:8811/index/send&phone_num="+phone_num;
+				url = "http://swoole.cddong.top:8811/index/send?mobile="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
 				// $.post()
 				$.get(url, function (data) {

@@ -14,7 +14,8 @@ use think\Session;
 class Send extends Controller{
 
 
-    public function index($mobile = ''){
+    public function index(){
+        $mobile = request()->get('mobile','');
         if(empty($mobile)){
             $data = array('msg'=>'手机号不能为空','status'=>false,'code'=>1000,'data'=>[]);
             return json($data);
