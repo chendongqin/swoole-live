@@ -51,6 +51,9 @@ $http->on('request',function ($request ,$response) use($http){
     }
     $res = ob_get_contents();
     ob_end_clean();
+    if(is_array($res)){
+        $res = json($res);
+    }
     $response->end($res);
 });
 
