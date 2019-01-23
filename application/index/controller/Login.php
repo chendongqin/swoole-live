@@ -14,8 +14,9 @@ use think\Session;
 class Login extends Controller{
 
     public function index(){
-        $mobile = request()->get('phone_num');
-        $code = request()->get('phone_num');
+        $request = request();
+        $mobile = $request->get('phone_num');
+        $code = $request->get('code');
         $virefy = Session::get('liveLogin'.$mobile);
         if(!$virefy){
             $data = array('msg'=>'验证码已过期','status'=>false,'code'=>2000,'data'=>[]);
