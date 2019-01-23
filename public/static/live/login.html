@@ -95,7 +95,7 @@
 		  $('#authCodeBtn').click(function (event) {
 
 			    var phone_num = $(" input[ name='phone_num' ] ").val()
-				url = "http://singwa.swoole.com:8811?s=index/login&phone_num="+phone_num;
+				url = "http://swoole.cddong.top:8811/index/send&phone_num="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
 				// $.post()
 				$.get(url, function (data) {
@@ -114,9 +114,13 @@
 				event.preventDefault();
 				var formData = $('form').serialize();
 				// TODO: 请求后台接口跳转界面，前端跳转或者后台跳
-				$.get("https://www.easy-mock.com/mock/5ab1188bddac7967e4398146/example/query?"+formData, function (data) {
-					console.log("https://www.easy-mock.com/mock/5ab1188bddac7967e4398146/example/query?" + formData);
-					// location.href='index.html';
+				$.get("http://swoole.cddong.top:8811/index/login?"+formData, function (data) {
+				    if(data.status == true){
+                        location.href='index.html';
+					}else{
+				        alert(data.msg);
+					}
+
 				});
 			});
 
